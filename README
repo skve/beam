@@ -1,0 +1,26 @@
+Directory Structure
+===================
+
+lua/
+└── beam/                           -> Primary configuration directory
+    ├── init.lua                    -> Bootstrapping script
+    ├── pkg.lua                     -> Setup the package manager
+    │── remap.lua                   -> Remap keybindings
+    ├── config/                     -> Configures each plugin. Effectively an alias for the
+    │   │                              /after directory inside `~/.config/nvim`. There's an
+    │   │                              optional file per-plugin that modifies configuration
+    │   │                              or sets up keymappings.
+    │   ├── plugin1.lua
+    │   ├── plugin2.lua
+    │   └── ...
+    └── manifest/                  -> Effectively the 'package.json' of the config. Defines
+        │                             the versions and dependencies of the packages we want,
+        │                             and there is an individual file per plugin for clarity.
+        │                             They're imported in `pkg.lua` and used by `lazy.nvim`.
+        ├── plugin1.lua
+        ├── plugin2.lua
+        └── ...
+
+after/
+└── beam/
+    └── init.lua
